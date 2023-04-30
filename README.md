@@ -15,3 +15,4 @@
 2. pip install "uvicorn[standard]"
 3. cd app
 4. uvicorn main:app --reload
+5. Uvicorn runnig on ... -> /docs
