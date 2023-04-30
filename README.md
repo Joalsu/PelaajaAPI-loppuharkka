@@ -26,3 +26,5 @@ Tämän jälkeen:
 3. cd app
 4. uvicorn main:app --reload
 5. Uvicorn runnig on ... -> /docs
+
+-> "set-executionpolicy remotesigned" Powershellissä auttaa, jos näissä vaiheissa tapahtuu virhe.
