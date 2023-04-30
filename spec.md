@@ -22,6 +22,10 @@ Tunnetut eventtityypit "type" -kenttä:
 - level_started
 - level_solved
 
+Hyäksytty "detail" tiedon formaatti esim:
+
+- level_1212_001
+
 detail -tieto kertoo lisätietoja eventistä. Esimerkiksi level_started ja level_solved -
 tapahtumissa se kertoo kentän nimen.
 
