@@ -8,14 +8,14 @@ router = APIRouter(prefix='/players', tags=['players'])
 
 # Palauttaa kaikkien pelaajien nimet ja id:t.
 # Jos ei pelaajia, palauttaa tyhjän listan.
-@router.get('/players', response_model=list[PlayerIn])
+@router.get('', response_model=list[PlayerIn])
 def get_players():
     return players
 
 
 # Palauttaa tietyn pelaajan kaikki tiedot id:n perusteella.
 # Jos kysellään tuntematonta pelaajaa, palautuu statuskoodi 404.
-@router.get('/players/{id}', response_model=PlayerDb)
+@router.get('/{id}', response_model=PlayerDb)
 def get_player(id: int):
     index = -1
     for i, p in enumerate(players):
@@ -29,7 +29,7 @@ def get_player(id: int):
 
 # Post uuden pelaajan luomiseen
 # Jos request 'name' valuen annettu arvo ei ole vain aakkosia nostetaan virhe
-@router.post('/players', status_code=status.HTTP_201_CREATED, response_model=PlayerIn)
+@router.post('', status_code=status.HTTP_201_CREATED, response_model=PlayerIn)
 def create_player(player_in: PlayerInCreate):
     if not player_in.name.isalpha():
         raise HTTPException(

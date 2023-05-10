@@ -6,7 +6,7 @@ from re import match
 from database.database import types, events, details
 
 
-router = APIRouter(prefix='/events', tags=['events'])
+router = APIRouter(prefix='', tags=['players'])
 
 
 # Palauttaa kysytyn pelaajan kaikki eventit tai kysytyn eventti tyypin
