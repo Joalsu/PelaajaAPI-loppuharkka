@@ -3,7 +3,7 @@ from database.models import EventDb, EventInCreate
 from fastapi import APIRouter, HTTPException, status
 from datetime import datetime
 from re import match
-from database.database import types, events, details
+from database.database import types, events
 
 
 router = APIRouter(prefix='', tags=['players'])
@@ -37,11 +37,6 @@ def create_events(id: int, event_in: EventInCreate):
     # Tarkistetaan onko eventti tyyppi oikea
     if event_in.type not in types:
         raise HTTPException(status_code=400, detail="Invalid event type")
-
-    # Tarkistetaan onko annettu detail arvo virheelisessä muodossa
-    if not match(details, event_in.detail):
-        raise HTTPException(
-            status_code=422, detail="Request contains invalid data")
 
     # Luodaan uusi eventti
     new_id = len(events) + 1

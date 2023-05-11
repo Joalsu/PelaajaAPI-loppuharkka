@@ -28,12 +28,8 @@ def get_player(id: int):
 
 
 # Post uuden pelaajan luomiseen
-# Jos request 'name' valuen annettu arvo ei ole vain aakkosia nostetaan virhe
 @router.post('', status_code=status.HTTP_201_CREATED, response_model=PlayerIn)
 def create_player(player_in: PlayerInCreate):
-    if not player_in.name.isalpha():
-        raise HTTPException(
-            detail='Request contains invalid data', status_code=422)
     new_id = len(players) + 1
     player = PlayerDb(id=new_id, name=player_in.name)
     players.append(player.dict())
